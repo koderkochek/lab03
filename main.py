@@ -1,14 +1,30 @@
-n = int(input("Введите кол-во чисел"))
+print("Введите вариант сортировки (по возрастанию / по убыванию):")
+s = input()
 
-arr = []
+n = int(input("Введите количество чисел: "))
+print("Введите числа:")
+
+mas = []
 for i in range(n):
-    arr.append(input())
+    mas.append(int(input()))
+    #mas[i] = int(input())
 
-for i in range(n-1):
-    for j in range(n-i-1):
-        if(arr[j]>arr[j+1]):
-            b = arr[j]
-            arr[j] = arr[j+1]
-            arr[j+1] = b
+print("Исходный массив:")
+print(mas)
+if (s == "по возрастанию"):
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if mas[j] > mas[j + 1]:
+                tmp = mas[j]
+                mas[j] = mas[j + 1]
+                mas[j + 1] = tmp
+if (s == "по убыванию"):
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if mas[j] < mas[j + 1]:
+                tmp = mas[j]
+                mas[j] = mas[j + 1]
+                mas[j + 1] = tmp
 
-print(arr)
+print("Массив после сортировки пузырьком:")
+print(mas)
